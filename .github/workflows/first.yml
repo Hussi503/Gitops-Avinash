@@ -1,5 +1,5 @@
 
-- name: myfirstworkflow
+  name: myfirstworkflow
   on: push
   jobs:
     myfirstjob:
