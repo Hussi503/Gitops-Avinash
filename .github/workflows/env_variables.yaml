@@ -12,3 +12,5 @@ jobs:
     steps:
       - run: echo "I am using ${{ env.cloud }}"
       - run: echo "${{ env.Greeting }} to the ${{ env.cloud }}"
+      - run: echo "the repository is ${{ github.repository }}"
+      - run: echo "the project id of this repository is ${{ vars.PROJECT_ID}}"
