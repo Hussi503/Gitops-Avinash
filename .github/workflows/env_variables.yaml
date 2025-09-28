@@ -1,0 +1,14 @@
+name: workflow variables 
+on: workflow_dispatch
+
+env:
+  cloud: Aws Cloud  
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello World
+    steps:
+      - run: iam using ${{ env.cloud }}
+      - run: echo $Greeting to the ${{ env.cloud }}
