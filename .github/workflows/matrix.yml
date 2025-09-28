@@ -1,22 +1,19 @@
-name: conditional-node js setup
-on: 
+name: matrix example
+on:
   push:
-    branches: 
+    branches:
       - "*"
-
 jobs:
-  node-setup:
+  test-matrix:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12, 14, 16]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node-version }}
+      - run: node -v
 
-      - run: npm install
-      - run: node index.js
-
-      
