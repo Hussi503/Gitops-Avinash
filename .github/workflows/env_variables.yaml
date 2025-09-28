@@ -7,8 +7,8 @@ env:
 jobs:
   print:
     runs-on: ubuntu-latest
-    env:
-      Greeting: "Hello World"
+    # env:
+    #   Greeting: "Hello World"
     steps:
       - run: echo "I am using ${{ env.cloud }}"
-      - run: echo "${{ env.Greeting }} to the ${{ env.cloud }}"
+      # - run: echo "${{ env.Greeting }} to the ${{ env.cloud }}"
