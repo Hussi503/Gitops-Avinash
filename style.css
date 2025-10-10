@@ -1,0 +1,123 @@
+/* Modern Dark Theme — style.css */
+
+/* Reset-ish */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial; }
+
+:root{
+  --bg: #0b0f14;
+  --panel: rgba(255,255,255,0.03);
+  --accent: #7df9ff;       /* neon cyan */
+  --accent-2: #8a7cff;     /* neon violet */
+  --muted: rgba(255,255,255,0.14);
+  --glass: rgba(255,255,255,0.02);
+  --btn-hover: rgba(255,255,255,0.05);
+  --shadow: 0 8px 30px rgba(0,0,0,0.7);
+}
+
+html,body { height: 100%; background: radial-gradient(1200px 800px at 10% 10%, rgba(122,95,255,0.06), transparent 8%),
+                                 radial-gradient(800px 600px at 90% 90%, rgba(125,249,255,0.03), transparent 8%), var(--bg); color: #e6eef6; }
+
+.app { display: flex; min-height: 100vh; align-items: center; justify-content: center; padding: 28px; }
+
+.calculator {
+  width: 360px;
+  max-width: calc(100vw - 40px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+
+/* Display */
+.display-wrap { margin-bottom: 12px; }
+.history {
+  min-height: 18px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+  padding-right: 8px;
+  opacity: 0.9;
+}
+.display {
+  width: 100%;
+  height: 62px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  font-size: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  color: #e9fbff;
+  text-align: right;
+  letter-spacing: 0.6px;
+  box-shadow: inset 0 -6px 20px rgba(0,0,0,0.6);
+}
+
+/* Keys grid */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.extra-keys {
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+  justify-content: space-between;
+  align-items:center;
+}
+
+/* Buttons */
+.btn {
+  height: 52px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  color: #dff8ff;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neon accent for op and equals */
+.btn.op {
+  background: linear-gradient(180deg, rgba(122,95,255,0.12), rgba(122,95,255,0.06));
+  color: white;
+  box-shadow: 0 8px 26px rgba(122,95,255,0.12), 0 0 12px rgba(122,95,255,0.06) inset;
+  border: 1px solid rgba(122,95,255,0.18);
+}
+.btn.eq {
+  grid-column: span 1;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: #02121a;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  box-shadow: 0 10px 30px rgba(125,249,255,0.12);
+}
+
+/* smaller/functional */
+.btn.func { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color: var(--muted); }
+.btn.small { height:44px; border-radius:10px; padding:6px 10px; font-size:15px; }
+
+/* wide zero */
+.btn.wide { grid-column: span 2; }
+
+/* hover / active effects */
+.btn:hover { transform: translateY(-4px); background: var(--btn-hover); }
+.btn:active { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
+
+/* responsiveness */
+@media (max-width:420px){
+  .calculator{ width: 94vw; padding:14px; }
+  .display{ height:56px; font-size:24px; }
+  .btn{ height:48px; font-size:15px; border-radius:10px; }
+}
+
+/* footer */
+.credit { margin-top:14px; text-align:center; font-size:12px; color:var(--muted); opacity:0.95; }
